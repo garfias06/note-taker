@@ -8,11 +8,11 @@ const readFromFile=util.promisify(fs.readFile);
 /**
  * 
  * @param {string} file 
- * @param {object} content 
+ * @param {object} note
  */
 
-const writeToFile=(file, content)=>{
-    fs.writeFile(file, JSON.stringify(content, null, 3), (err) =>
+const writeToFile=(file, note)=>{
+    fs.writeFile(file, JSON.stringify(note, null, 3), (err) =>
     err ? console.error(err) : console.info(`\nData written to ${file}`)
   );
 };
@@ -20,15 +20,15 @@ const writeToFile=(file, content)=>{
 /**
  * 
  * @param {string} file 
- * @param {object} content 
+ * @param {object} note
  */
-const readAndAppend=(content, file)=>{
+const readAndAppend=(note, file)=>{
     fs.readFile(file, 'utf8', (err, data)=>{
         if (err){
             console.error(err);
         }else{
             const parsedNote=JSON.parse(data);
-            parsedNote.push(content);
+            parsedNote.push(note);
             writeToFile(file, parsedNote);
         };
     });
