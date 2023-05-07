@@ -3,7 +3,7 @@ const express = require('express');
 // initialize instance
 const app = express();
 // Port where app will be listened on the server
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 // importing note router
 const notes=require('./routes');

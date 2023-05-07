@@ -1,7 +1,7 @@
 // PACKAGES
 const app=require('express').Router();
 const { v4: uuidv4 } = require('uuid');
-const {readFromFile, readAndAppend}=require('../utils/fsUtils');
+const {readFromFile, readAndAppend, deletingNote}=require('../utils/fsUtils');
 
 
 // !GET
@@ -34,25 +34,16 @@ app.post('/notes', (req, res) => {
   });
 
   // !!DELETE
+app.delete('/notes/:id', (req, res)=>{
+  if (req.params.id){
+    console.info(`${req.method} request received to get id`);
 
-// app.get('/:id', (req, res)=>{
-//   if(req.params.id){
-//     console.info(`${req.method} request received to get id`);
-//     const noteId=req.params.id;
-//     for (let i = 0; i < notesFile.length; i++) {
-//       const cId = notesFile[i];
-//       if(cId.id===noteId){
-//         res.status(200).json(cId);
-//         return;
-//       }
-//     }
-//     res.status(404).send('Not found');
-//   }else{
-//     res.status(400).send('ID not provided');
-//   }
-// });
-  // app.delete('/:id', (req, res)=>{
+    deletingNote('./db/db.json', req.params)
+    res.send('DELETE request received')
+  }else{
+    res.error('error DELETING')
+  }
+});
 
-  // })
-  
-  module.exports = app;
+
+module.exports = app;
