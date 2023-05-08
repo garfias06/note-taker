@@ -14,7 +14,14 @@ Node Module Packages installed: "express.js" to connect to the server and "uuid"
 Note: npm start, command, is used to run the application and connect to the server.
 
 ## Usage
-Heroku URL:
+Heroku URL: https://note-task-taker.herokuapp.com/
+
+- The user is going to be taken to the homepage where once start buttons is clicked, notes-page will be display where the user is going to be able to keep track of notes
+![homepage](assets/homepage.jpg)
+![note-page](assets/note-page.jpg)
+- On the right side of the page the user will be prompted text areas to add a title and text for the new note to be saved on the system, on the upper corner the user will find an icon to save the new note and automatically will be stored to the right side of the page where once saved, the user can either delete or edit the note added. To delete note, the user will have to click on the "trash can" icon.
+![adding-note](assets/adding-note.jpg)
+![note-added](assets/note-added.jpg)
 
 ## Credits
 https://www.freecodecamp.org/
